@@ -1,4 +1,4 @@
-## Self-Supervised Speech Quality Estimation and Enhancement Using Only Clean Speech
+## Self-Supervised Speech Quality Estimation and Enhancement Using Only Clean Speech (ICLR 2024)
 #### Szu-Wei Fu, Kuo-Hsuan Hung, Yu Tsao, Yu-Chiang Frank Wang
 
 <center><img src=".png" width="800"></center>
@@ -40,17 +40,10 @@ We provide the checkpoints of trained models in the corresponding ./exp/config_n
 
 
 ## Collaboration
-I'm open to collaboration! If you find this Self-Supervised SE/QE topic interesting, please let me know (e-mail:szuweif@nvidia.com). 
+I'm open to collaboration! If you find this Self-Supervised SE/QE topic interesting, please let me know (e-mail: szuweif@nvidia.com). 
 
 ### Citation
-If you find the code useful in your research, please cite:
-
-    @inproceedings{fu2019metricGAN,
-      title     = {Self-Supervised Speech Quality Estimation and Enhancement Using Only Clean Speech},
-      author    = {Fu, Szu-Wei and Hung, Kuo-Hsuan and Tsao, Yu and Wang, Yu-Chiang Frank },
-      booktitle = {International Conference on Learning Representations (ICLR)},
-      year      = {2024}
-    }
+If you find the code useful in your research, please cite our ICLR paper:
     
 ## References
 * [vector-quantize](https://github.com/lucidrains/vector-quantize-pytorch) (for VQ-VAE)
