@@ -1,7 +1,7 @@
 ## Self-Supervised Speech Quality Estimation and Enhancement Using Only Clean Speech (ICLR 2024)
 #### Szu-Wei Fu, Kuo-Hsuan Hung, Yu Tsao, Yu-Chiang Frank Wang
 
-<center><img src=".png" width="800"></center>
+![teaser](https://github.com/JasonSWFu/VQscore/blob/main/VQScore.png)
 
 ## Training
 To Train our speech enhancement (using only Clean Speech). Below is an example command.
