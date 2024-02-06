@@ -3,6 +3,9 @@
 
 <center><img src="https://github.com/JasonSWFu/VQscore/blob/main/VQScore.png" width="600"></center>
 
+## Environment
+CUDA Version: 12.2
+python: 3.8
 ## Training
 To Train our speech enhancement model (using only Clean Speech). Below is an example command.
 ```shell
@@ -42,6 +45,9 @@ We provide the checkpoints of trained models in the corresponding ./exp/config_n
 * Note that the provided checkpoints are the models after we reorganize the code, so the results are slightly different from those shown in the paper.
 * However, the overall trend should be similar.
 
+## Adversarial noise
+As shown in the following spectrogram, the applied adversarial noise doesn't have a fixed pattern as Gaussian noise. So it may be a good one to train a robust speech enhancement model. 
+<center><img src="https://github.com/JasonSWFu/VQscore/blob/main/adv_wav.png" width="600"></center>
 
 ## Collaboration
 I'm open to collaboration! If you find this Self-Supervised SE/QE topic interesting, please let me know (e-mail: szuweif@nvidia.com). 
