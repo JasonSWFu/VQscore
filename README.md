@@ -8,6 +8,7 @@ CUDA Version: 12.2
 
 python: 3.8
 
+* Note: To use 'CUDAExecutionProvider' for accelerated DNSMOS ONNX model inference, please check CUDA and ONNX Runtime version compatibility, here [https://onnxruntime.ai/docs/execution-providers/CUDA-ExecutionProvider.html].
 ## Training
 To Train our speech enhancement model (using only Clean Speech). Below is an example command.
 ```shell
