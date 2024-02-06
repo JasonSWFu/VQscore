@@ -30,6 +30,8 @@ python trainVQVAE.py \
 Below is an example command for generating enhanced speech/ estimated quality scores from the model.
 Where '-c' is the path of the config file, '-m' is the path of the pre-trained model, and '-i' is the path of the input wav file.
 
+* Note: Because our training data is 16kHz clean speech, only 16kHz speech input is supported.
+  
 ```shell
 python inference.py \
 -c ./config/SE_cbook_2048_1_128_2Transformer_vq_3_kernel_size_91_2.yaml \
@@ -63,3 +65,4 @@ If you find the code useful in your research, please cite our ICLR paper :)
     
 ## References
 * [vector-quantize](https://github.com/lucidrains/vector-quantize-pytorch) (for VQ-VAE)
+* [DNSMOS](https://github.com/microsoft/DNS-Challenge/tree/master/DNSMOS)
