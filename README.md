@@ -5,7 +5,9 @@
 
 ## Environment
 CUDA Version: 12.2
+
 python: 3.8
+
 ## Training
 To Train our speech enhancement model (using only Clean Speech). Below is an example command.
 ```shell
@@ -47,7 +49,7 @@ We provide the checkpoints of trained models in the corresponding ./exp/config_n
 
 ## Adversarial noise
 As shown in the following spectrogram, the applied adversarial noise doesn't have a fixed pattern as Gaussian noise. So it may be a good one to train a robust speech enhancement model. 
-<center><img src="https://github.com/JasonSWFu/VQscore/blob/main/adv_wav.png" width="600"></center>
+<center><img src="https://github.com/JasonSWFu/VQscore/blob/main/adv_wav.png" width="300"></center>
 
 ## Collaboration
 I'm open to collaboration! If you find this Self-Supervised SE/QE topic interesting, please let me know (e-mail: szuweif@nvidia.com). 
