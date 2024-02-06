@@ -1,6 +1,9 @@
 ## Self-Supervised Speech Quality Estimation and Enhancement Using Only Clean Speech (ICLR 2024)
 #### Szu-Wei Fu, Kuo-Hsuan Hung, Yu Tsao, Yu-Chiang Frank Wang
 
+### Introduction
+This work is about training a speech quality estimator and enhancement model WITHOUT any labeled (paired) data. Specifically, during training, we only need CLEAN speech for model training.
+
 <center><img src="https://github.com/JasonSWFu/VQscore/blob/main/VQScore.png" width="600"></center>
 
 ## Environment
