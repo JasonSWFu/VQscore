@@ -15,7 +15,9 @@ python: 3.8
 
 ## Dataset used in the paper/code
 If you want to train from scratch, please download the dataset to the corresponding path depicted in the .csv and .pickle files.
+
 Speech enhancement:
+
 => Training: [clean speech of VoiceBank-DEMAND trainset](https://datashare.ed.ac.uk/handle/10283/2791)
 
 => validation: As in MetricGAN-U, [noisy speech (speakers p226 and p287) of VoiceBank-DEMAND trainset](https://datashare.ed.ac.uk/handle/10283/2791)
@@ -23,6 +25,7 @@ Speech enhancement:
 => Evaluation: [DNS1 and DNS3](https://github.com/microsoft/DNS-Challenge)
 
 Quality estimation (VQScore):
+
 => Training: [LibriSpeech clean-460 hours](https://www.openslr.org/12)
 
 => validation: [noisy speech of VoiceBank-DEMAND testset](https://datashare.ed.ac.uk/handle/10283/2791)
