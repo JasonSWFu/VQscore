@@ -12,18 +12,31 @@ CUDA Version: 12.2
 python: 3.8
 
 * Note: To use 'CUDAExecutionProvider' for accelerated DNSMOS ONNX model inference, please check CUDA and ONNX Runtime version compatibility, [here](https://onnxruntime.ai/docs/execution-providers/CUDA-ExecutionProvider.html).
+
+## Dataset used in the paper/code
+If you want to train from scratch, please download the dataset to the corresponding path depicted in the .csv and .pickle files.
+Speech enhancement:
+=> Training: [clean speech of VoiceBank-DEMAND trainset] (https://datashare.ed.ac.uk/handle/10283/2791)
+=> validation: As in MetricGAN-U, [noisy speech (speakers p226 and p287) of VoiceBank-DEMAND trainset] (https://datashare.ed.ac.uk/handle/10283/2791)
+=> Evaluation: DNS1 and DNS3 (https://github.com/microsoft/DNS-Challenge)
+
+Quality estimation (VQScore):
+=> Training: [LibriSpeech clean-460 hours] (https://www.openslr.org/12)
+=> validation: [noisy speech of VoiceBank-DEMAND testset] (https://datashare.ed.ac.uk/handle/10283/2791)
+=> Evaluation: [Tencent, and IUB] (https://github.com/ConferencingSpeech/ConferencingSpeech2022/tree/main/Training/Dev%20datasets)
+
 ## Training
 To Train our speech enhancement model (using only Clean Speech). Below is an example command.
 ```shell
 python trainVQVAE.py \
--c config/SE_cbook_2048_1_128_2Transformer_vq_3_kernel_size_91.yaml \
---tag SE_cbook_2048_1_128_2Transformer_vq_3_kernel_size_91
+-c config/SE_cbook_4096_1_128_lr_1m5_1m5_github.yaml \
+--tag SE_cbook_4096_1_128_lr_1m5_1m5_github
 ```
 To Train our speech quality estimator, VQScore. Below is an example command.
 ```shell
 python trainVQVAE.py \
--c config/QE_cbook_size_2048_1_32_IN_input_encoder_z_Librispeech_clean.yaml \
---tag QE_cbook_size_2048_1_32_IN_input_encoder_z_Librispeech_clean
+-c config/QE_cbook_size_2048_1_32_IN_input_encoder_z_Librispeech_clean_github.yaml \
+--tag QE_cbook_size_2048_1_32_IN_input_encoder_z_Librispeech_clean_github
 ```
 
 ## Inference
@@ -34,14 +47,14 @@ Where '-c' is the path of the config file, '-m' is the path of the pre-trained m
   
 ```shell
 python inference.py \
--c ./config/SE_cbook_2048_1_128_2Transformer_vq_3_kernel_size_91_2.yaml \
--m ./exp/SE_cbook_2048_1_128_2Transformer_vq_3_kernel_size_91_2/checkpoint-dnsmos_ovr=2.698_AT.pkl \
+-c ./config/SE_cbook_4096_1_128_lr_1m5_1m5_github.yaml \
+-m ./exp/SE_cbook_4096_1_128_lr_1m5_1m5_github/checkpoint-dnsmos_ovr=2.760_AT.pkl \
 -i ./noisy_p232_005.wav
 ```
 ```shell
 python inference.py \
--c ./config/QE_cbook_size_2048_1_32_IN_input_encoder_z_Librispeech_clean.yaml \
--m ./exp/QE_cbook_size_2048_1_32_IN_input_encoder_z_Librispeech_clean/checkpoint-dnsmos_ovr_CC=0.835.pkl \
+-c ./config/QE_cbook_size_2048_1_32_IN_input_encoder_z_Librispeech_clean_github.yaml \
+-m ./exp/QE_cbook_size_2048_1_32_IN_input_encoder_z_Librispeech_clean_github/checkpoint-dnsmos_ovr_CC=0.835.pkl \
 -i ./noisy_p232_005.wav
 ```
 
