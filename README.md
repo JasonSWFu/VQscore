@@ -22,7 +22,7 @@ Speech enhancement:
 
 => validation: As in MetricGAN-U, [noisy speech (speakers p226 and p287) of VoiceBank-DEMAND trainset](https://datashare.ed.ac.uk/handle/10283/2791)
 
-=> Evaluation: [DNS1 and DNS3](https://github.com/microsoft/DNS-Challenge)
+=> Evaluation: [noisy speech of VoiceBank-DEMAND testset](https://datashare.ed.ac.uk/handle/10283/2791) and [DNS1 and DNS3](https://github.com/microsoft/DNS-Challenge)
 
 Quality estimation (VQScore):
 
