@@ -1,0 +1,74 @@
+name: QE_cbook_size_2048_1_32_IN_input_encoder_z_Librispeech_clean_github
+###########################################################
+#                   DATA SETTING                          #
+###########################################################
+# user defined data path
+sampling_rate: 16000
+data:
+    path: ""
+    subset:
+        clean_train: "./Librispeech_clean.csv"
+        clean_valid: "./VCTK_clean_test.csv" # not actually used
+
+###########################################################
+#                   MODEL SETTING                         #
+###########################################################
+task: Quality_Estimation  # Speech_Enhancement or Quality_Estimation
+train_mode: autoencoder
+cos_loss: True
+input_transform: None
+
+
+VQVAE_params:
+    codebook_size: 2048 
+    codebook_num: 1
+    codebook_dim: 32
+    orthogonal_reg_weight: 0
+    use_cosine_sim: True
+    ema_update: True
+    learnable_codebook: False
+    stochastic_sample_codes: False
+    sample_codebook_temp: 6
+    straight_through: False
+    reinmax: False
+    kmeans_init: True
+    threshold_ema_dead_code: -1000
+
+###########################################################
+#                  LOSS WEIGHT SETTING                    #
+###########################################################
+lambda_vq_loss: 1.0      # Loss weight of vector quantize loss.
+lambda_stft_loss: 45.0   # Loss weight of stft loss.
+      
+###########################################################
+#                  DATA LOADER SETTING                    #
+###########################################################
+batch_size: 64              # Batch size.
+batch_length: 48000         # Length of each audio in batch.
+pin_memory: true            # Whether to pin memory in Pytorch DataLoader.
+num_workers: 6              # Number of workers in Pytorch DataLoader.
+
+###########################################################
+#             OPTIMIZER & SCHEDULER SETTING               #
+###########################################################
+VQVAE_optimizer_type: Adam
+VQVAE_optimizer_params:
+    lr: 1.0e-5
+    betas: [0.5, 0.9]
+    weight_decay: 0.0
+VQVAE_scheduler_type: StepLR
+VQVAE_scheduler_params:
+    step_size: 200000      # Generator's scheduler step size.
+    gamma: 1.0
+VQVAE_grad_norm: -1
+
+###########################################################
+#                    INTERVAL SETTING                     #
+###########################################################
+start_steps:                       # Number of steps to start training
+    VQVAE: 0
+AT_training_start_steps: 60000000
+train_max_steps: 800000             # Number of training steps.
+save_interval_steps: 100000         # Interval steps to save checkpoint.
+eval_interval_steps: 20000          # Interval steps to evaluate the network.
+log_interval_steps: 20000           # Interval steps to record the training log.
