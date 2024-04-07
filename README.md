@@ -55,7 +55,7 @@ Where '-c' is the path of the config file, '-m' is the path of the pre-trained m
 ```shell
 python inference.py \
 -c ./config/SE_cbook_4096_1_128_lr_1m5_1m5_github.yaml \
--m ./exp/SE_cbook_4096_1_128_lr_1m5_1m5_github/checkpoint-dnsmos_ovr=2.760_AT.pkl \
+-m ./exp/SE_cbook_4096_1_128_lr_1m5_1m5_github/checkpoint-dnsmos_ovr=2.761_AT.pkl \
 -i ./noisy_p232_005.wav
 ```
 ```shell
