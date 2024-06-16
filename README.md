@@ -18,7 +18,7 @@ If you want to train from scratch, please download the dataset to the correspond
 
 Speech enhancement:
 
-=> Training: [clean speech of VoiceBank-DEMAND trainset](https://datashare.ed.ac.uk/handle/10283/2791)
+=> Training: [clean speech of VoiceBank-DEMAND trainset](https://datashare.ed.ac.uk/handle/10283/2791) (Its original sampling rate is 48kHz, you have to down-sample it to 16kHz)
 
 => validation: As in MetricGAN-U, [noisy speech (speakers p226 and p287) of VoiceBank-DEMAND trainset](https://datashare.ed.ac.uk/handle/10283/2791)
 
