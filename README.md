@@ -1,8 +1,8 @@
 ## Self-Supervised Speech Quality Estimation and Enhancement Using Only Clean Speech (ICLR 2024)
 #### Szu-Wei Fu, Kuo-Hsuan Hung, Yu Tsao, Yu-Chiang Frank Wang
 
-### Update 2024/12/2
-Provide the "inference_folder" code to evaluate the utterances in a folder. We found that the inference speed of VQScore is quite fast (15.5 hours of speech takes less than 2 minutes on a single A100 GPU), making it suitable for filtering out noisy training data when training speech enhancement or TTS models.
+## Update 2024/12/2
+Provide the Quality_Estimation "inference_folder" code to evaluate the utterances in a folder. We found that the inference speed of VQScore is quite fast (15.5 hours of speech takes less than 2 minutes on a single A100 GPU), making it suitable for filtering out noisy training data when training speech enhancement or TTS models.
 
 
 ### Introduction
