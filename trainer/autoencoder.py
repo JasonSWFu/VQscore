@@ -146,7 +146,7 @@ class Trainer(TrainerAE):
         
         
         ## load evaluation data
-        self.vctk_test = load_VCTK_testSet('./VCTK_noisy_testSet_with_scores.pickle') # it is the validation set for QE, and one of the test set for SE
+        self.vctk_test = load_VCTK_testSet('./VCTK_noisy_testSet_with_scores.pickle', self.config['data']['path']) # it is the validation set for QE, and one of the test set for SE
         if self.config['task'] == 'Speech_Enhancement':
             self.hop_size = 128
             self.vctk_Clean_path = self.config['vctk_Clean_path']
@@ -156,8 +156,8 @@ class Trainer(TrainerAE):
             self.highest_pesq, self.highest_dnsmos_ovr = 0, 0
         elif self.config['task'] == 'Quality_Estimation':
             self.hop_size = 256      
-            self.tencent = load_Tencent(pickle_path ='./Tencent_ind2.pickle', number_test_set = 250)       
-            self.iub = load_IUB(pickle_path = './IUB_ind2.pickle', number_test_set = 200)
+            self.tencent = load_Tencent(pickle_path ='./Tencent_ind2.pickle', number_test_set = 250, data_path= self.config['data']['path'])
+            self.iub = load_IUB(pickle_path = './IUB_ind2.pickle', number_test_set = 200, data_path= self.config['data']['path'])
             self.highest_dnsmos_ovr_CC = 0
         
         # Copy code to the current exp directory for tracing modification
