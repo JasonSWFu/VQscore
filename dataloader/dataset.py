@@ -75,6 +75,8 @@ class SingleDataset(Dataset):
     
 
     def _load_data(self, filename, load_fn):
+        # Join the root directory with the relative file path
+        filename = os.path.join(self.data_path, filename.lstrip('/'))
         if load_fn == sf.read:            
             data = load_fn(filename, always_2d=True)[0][:,0] # T x C, 1
             data_shape = data.shape[0]
