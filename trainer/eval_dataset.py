@@ -21,26 +21,31 @@ def get_filepaths(directory):
     return file_paths  # Self-explanatory.
 
 class load_IUB:
-    def __init__(self, pickle_path, number_test_set):
-        with open(pickle_path, "rb") as fp:  # Unpickling
+def __init__(self, pickle_path, number_test_set, data_path):
+    with open(pickle_path, "rb") as fp:  # Unpickling
             [self.IUB_cosine_data_path, self.IUB_cosine_mos] = pickle.load(fp)
             [self.IUB_voices_data_path, self.IUB_voices_mos] = pickle.load(fp)
         
+        self.data_path = data_path
         self.IUB_cosine_data_dict = dict()
         for file in self.IUB_cosine_data_path[0:number_test_set]:
+            # Join the root directory with the relative file path
+            file = os.path.join(self.data_path, file.lstrip('/'))
             noisy, fs = torchaudio.load(file)
             self.IUB_cosine_data_dict[file] = noisy
         self.IUB_cosine_mos = self.IUB_cosine_mos[0:number_test_set]  
         
         self.IUB_voices_data_dict = dict()
         for file in self.IUB_voices_data_path[0:number_test_set]:
+            # Join the root directory with the relative file path
+            file = os.path.join(self.data_path, file.lstrip('/'))
             noisy, fs = torchaudio.load(file)
             self.IUB_voices_data_dict[file] = noisy
         self.IUB_voices_mos = self.IUB_voices_mos[0:number_test_set] 
         
     
 class load_Tencent:
-    def __init__(self, pickle_path, number_test_set):
+    def __init__(self, pickle_path, number_test_set, data_path):
         with open(pickle_path, "rb") as fp:  # Unpickling
             [Tencent_woR_data_path, Tencent_woR_mos] = pickle.load(fp)
             [Tencent_wR_data_path, Tencent_wR_mos] = pickle.load(fp)
@@ -48,8 +53,11 @@ class load_Tencent:
         self.Tencent_woR_data_dict = dict()
         self.Tencent_woR_data_path = []
         self.Tencent_woR_mos = []
+        self.data_path = data_path
         n=0     
         for i, file in enumerate(Tencent_woR_data_path):
+            # Join the root directory with the relative file path
+            file = os.path.join(self.data_path, file.lstrip('/'))
             noisy, fs = torchaudio.load(file)
             if fs == 16000:
                 self.Tencent_woR_data_dict[file] = noisy
@@ -64,6 +72,8 @@ class load_Tencent:
         self.Tencent_wR_mos = []
         n=0     
         for i, file in enumerate(Tencent_wR_data_path):
+            # Join the root directory with the relative file path
+            file = os.path.join(self.data_path, file.lstrip('/'))
             noisy, fs = torchaudio.load(file)
             if fs == 16000 and Tencent_wR_mos[i]>1.1:
                 self.Tencent_wR_data_dict[file] = noisy
@@ -114,13 +124,14 @@ class load_DNS3:
                 self.DNS3_ms_realrec_dict[file] = noisy
             
 class load_VCTK_testSet:  
-    def __init__(self, pickle_path):    
+    def __init__(self, pickle_path, data_path):
         with open(pickle_path, "rb") as fp:  # Unpickling
             self.vctk_Noisy_list = pickle.load(fp)
             self.SNR_list = pickle.load(fp)
             self.PESQ_list = pickle.load(fp)
             test_DNSMOSp835 = pickle.load(fp)
             self.STOI_list = pickle.load(fp)
+            self.data_path = data_path
             
         self.sig = [i['SIG'] for i in test_DNSMOSp835]
         self.bak = [i['BAK'] for i in test_DNSMOSp835]
@@ -128,6 +139,8 @@ class load_VCTK_testSet:
         
         self.VCTK_data_dict = dict()
         for file in self.vctk_Noisy_list:
+            # Join the root directory with the relative file path
+            file = os.path.join(self.data_path, file.lstrip('/'))
             noisy, fs = torchaudio.load(file)
             self.VCTK_data_dict[file] = noisy 
             
