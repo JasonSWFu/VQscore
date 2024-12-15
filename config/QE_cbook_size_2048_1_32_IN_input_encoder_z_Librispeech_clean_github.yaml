@@ -5,7 +5,7 @@ name: QE_cbook_size_2048_1_32_IN_input_encoder_z_Librispeech_clean_github
 # user defined data path
 sampling_rate: 16000
 data:
-    path: ""
+    path: ""  # write the root path of your dataset folder.(e.g "/home/xxx/projects/VQscore-main/datasets")
     subset:
         clean_train: "./Librispeech_clean.csv"
         clean_valid: "./VCTK_clean_test.csv" # not actually used
